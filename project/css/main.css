@@ -13,6 +13,35 @@ p {
 	font-size: 30px;
 }
 
+button {
+	margin-top: 1.4rem;
+}
+
+.page-header {
+	background-color: mediumaquamarine;
+	padding-top: 1.4rem;
+	padding-bottom: 1.4rem;
+	color: #fff;
+}
+
+.menu {
+	background: white;
+	padding: 1rem;
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-pack: space-evenly;
+	justify-content: space-evenly;
+}
+
+.menu a {
+	color: black;
+	font-weight: 700;
+	padding: 1rem;
+	flex-basis: 0;
+	-webkit-box-flex: 1;
+	flex-grow: 1;
+}
+
 #doge-image img {
 	height: 140px;
 	margin-top: 20px;
