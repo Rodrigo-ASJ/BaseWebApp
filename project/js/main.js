@@ -9,20 +9,31 @@ function myFunction() {
 }
 
 // Llamado a la API del clima
-
+/*
 $(document).ready(function() {
 	getWeather();
 });
+ */
 
-function getWeather() {
-	var url = 'https://api.openweathermap.org/data/2.5/weather?q=Barcelona&units=imperial&APPID=' + apiKey;
+function getWeather(searchQuery) {
+	var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + searchQuery + '&units=imperial&APPID=' + apiKey;
+
+	$('.city').text(''); // limpia las busquedas realizadas
+	$('.temp').text(''); // limpia las busquedas realizadas
 
 	$.ajax(url, {
 		success: function(data) {
-			console.log(data);
-
 			$('.city').text(data.name);
 			$('.temp').text(data.main.temp);
+			$('.error-message').text(''); //limpia el error si es correcto el resultado
+		},
+		error: function(error) {
+			$('.error-message').text('An error occured'); //devuelve error si no encuentra la ciudad
 		},
 	});
+}
+
+function searchWeather() {
+	var searchQuery = $('.search').val();
+	getWeather(searchQuery);
 }
